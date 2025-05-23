@@ -4,10 +4,8 @@ import PropertyCard from "@/component/ui/cards/property";
 import Headlines from "@/component/ui/headlines";
 import Pagination from "@/component/ui/pagination";
 
-// async function getProperties() {
 async function getProperties(page = 1, perPage = 8) {
   try {
-    // const response = await fetch(`${process.env.WP_URL}/property?&_embed=true`);
     const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/property?_embed=true&page=${page}&per_page=${perPage}`);
 
     if (!response.ok) {
@@ -20,10 +18,8 @@ async function getProperties(page = 1, perPage = 8) {
     const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
     
     return { data, totalPosts, totalPages };
-    // return data;
   } catch (error) {
     console.error(error);
-    // return [];
     return { data: [], totalPosts: 0, totalPages: 1 };
   }
 }
@@ -31,8 +27,6 @@ async function getProperties(page = 1, perPage = 8) {
 type SearchParams = { [key: string]: string | string[] | undefined };
 
 export default async function PropertiesPage({searchParams}: {searchParams: Promise<SearchParams>;}) {
-
-  // const data = await getProperties()
 
   const params = await searchParams;
   const page = parseInt(typeof params.page === "string" ? params.page : '1', 10);

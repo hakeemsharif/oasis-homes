@@ -32,6 +32,7 @@
     font-size: 19px;
     font-family: var(--author-bold);
     text-transform: capitalize;
+
     p {
         width: 100%;
     }
@@ -80,52 +81,49 @@
 }
 
 @media screen and (max-width: 900px) {
+
     .info {
-
         grid-template-columns: repeat(3, 1fr);
-            p {
-        width: 100%;
-        font-size: 15px;
-    }
+            
+        p {
+            width: 100%;
+            font-size: 15px;
+        }
 
-    strong {
-        display: block;
-        color: var(--text-color);
-        font-family: var(--satoshi-regular);
-        font-weight: bold;
-        font-size: 18px;
+        strong {
+            display: block;
+            color: var(--text-color);
+            font-family: var(--satoshi-regular);
+            font-weight: bold;
+            font-size: 18px;
+        }
     }
-    }
-
 }
 
 @media screen and (max-width: 740px) {
-.content {
-
-    width: auto;
-    margin: 0 auto;
-
-}
-
+    .content {
+        width: auto;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 600px) {
     .info {
-    padding: 0;
+        padding: 0;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 15px;
-            p {
-        width: 100%;
-        font-size: 15px;
-    }
+        
+        p {
+            width: 100%;
+            font-size: 15px;
+        }
 
-    strong {
-        display: block;
-        color: var(--text-color);
-        font-family: var(--satoshi-regular);
-        font-weight: bold;
-        font-size: 18px;
+        strong {
+            display: block;
+            color: var(--text-color);
+            font-family: var(--satoshi-regular);
+            font-weight: bold;
+            font-size: 18px;
+        }
     }
-    }
-
 }

@@ -5,20 +5,9 @@
   --text-color: #000000;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 html,
-body {
-  /* max-width: 1800px;
-  margin: 0 auto; */
-  
+body {  
   overflow-x: hidden;
-  
 }
 
 body {
@@ -27,9 +16,7 @@ body {
   font-family: var(--author-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative; /* Required for shadow overflow */
-  /* padding: 0 50px;  */
-  /* Space for shadows */
+  position: relative;
 }
 
 * {
@@ -64,6 +51,5 @@ main {
   main {
     padding: 0 20px;
   }
-
 
 }

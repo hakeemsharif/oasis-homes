@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Headlines from '@/component/ui/headlines';
 import Search from '@/component/ui/search';
 import AgentsCards from '@/component/ui/cards/agents';

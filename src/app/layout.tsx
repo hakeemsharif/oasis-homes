@@ -7,7 +7,6 @@ import { ReactLenis } from "lenis/react";
 import "./globals.css";
 import 'lenis/dist/lenis.css'
 import "./globals.css";
-// import { useLenis } from "lenis/react";
 
 const authorBold = localFont({
   src: "font/Author-Bold.otf",

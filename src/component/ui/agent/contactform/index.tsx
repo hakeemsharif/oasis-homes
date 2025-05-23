@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./form.module.scss";
 import AgentForm from "../mainform";
+
 type AgentDetails = {
   title: { rendered: string };
   acf: {
@@ -13,6 +14,7 @@ type AgentDetails = {
 type AgentDetailsProps = {
   data: AgentDetails;
 };
+
 export default function AgentContactForm({ data }: AgentDetailsProps) {
   return (
     <section className={style.inquiry}>

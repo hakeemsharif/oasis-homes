@@ -14,7 +14,6 @@ type ImageProperty = {
 type AgentStaticParams = {
   slug: string;
 };
-// export const revalidate = 60;
 
 async function fetchAgentDetails(slug: string) {
   try {
@@ -27,7 +26,6 @@ async function fetchAgentDetails(slug: string) {
     }
 
     const data = await response.json();
-    //[0] quite imported
     return data[0] || null;
   } catch (error) {
     console.error("Error fetching agent:", error);

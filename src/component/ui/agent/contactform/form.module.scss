@@ -1,4 +1,3 @@
-/* General Styles */
 .inquiry {
     margin-left: 20px;
     width: 30%;
@@ -8,7 +7,6 @@
     margin: 10px 0;
 }
 
-/* Agent Section */
 .agent {
     display: flex;
     flex-direction: column;
@@ -28,7 +26,6 @@
     font-family: var(--satoshi-regular);
 }
 
-/* Info Grid */
 .info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -36,7 +33,6 @@
     width: 500px;
 }
 
-/* Form Inputs */
 .form input,
 .form textarea {
     width: 100%;
@@ -50,7 +46,6 @@
     outline: none;
 }
 
-/* Button Styles */
 .button {
     width: 100%;
     padding: 10px 30px;

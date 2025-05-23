@@ -1,6 +1,4 @@
 .container {
-    /* height: calc(100vh - 125px); */
-    // height: 900px;
     margin-bottom: 25px;
 }
 
@@ -17,7 +15,6 @@
         "card-2 card-8 card-9 card-4";
 }
 
-/* Grid area assignments */
 .card_one   { grid-area: card-1; }
 .card_two   { grid-area: card-2; }
 .card_three { grid-area: card-3; }
@@ -28,7 +25,6 @@
 .card_eight { grid-area: card-8; }
 .card_nine  { grid-area: card-9; }
 
-/* Backgrounds */
 .card_one,
 .card_two,
 .card_three,
@@ -55,7 +51,6 @@
     font-family: var(--satoshi-regular);
 }
 
-/* Shared card styling */
 .card_one,
 .card_two,
 .card_three,
@@ -71,7 +66,6 @@
     align-content: center;
 }
 
-/* Typography */
 .content h1 {
     font-family: var(--author-bold);
     margin-bottom: 20px;
@@ -89,7 +83,6 @@
 
 }
 
-/* Responsive: max-width 850px */
 @media screen and (max-width: 850px) {
     .grid {
         grid-gap: 15px;
@@ -115,7 +108,6 @@
     }
 }
 
-/* Responsive: max-width 660px */
 @media screen and (max-width: 660px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);

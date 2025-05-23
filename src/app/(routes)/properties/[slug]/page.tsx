@@ -13,8 +13,6 @@ type PropertyStaticParams = {
   slug: string;
 };
 
-// export const revalidate = 60;
-
 async function fetchPropertyDetails(slug: string) {
   try {
     const response = await fetch(

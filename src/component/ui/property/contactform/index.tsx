@@ -51,19 +51,7 @@ export default async function ContactForm({ id, title }: { id: number; title: st
             </div>
             <Link className={style.link} href={`/agents/${agent.slug}`}>Agent Profile</Link>
         </div>
-
       </div>
-
-      {/* <form className={style.fields}>
-        <h1>Inquire Property</h1>
-        <input type="text" name="firstname" placeholder="First Name" />
-        <input type="text" name="lastname" placeholder="Last Name" />
-        <input type="text" name="email" placeholder="Email" />
-        <input type="text" name="phonenumber" placeholder="Phone Number (optional)" />
-        <textarea name="message" placeholder="Enter your message" ></textarea>
-        <button className={style.button}>Send Message</button>
-      </form> */}
-
       <MainForm title={title}/>
     </div>
   );

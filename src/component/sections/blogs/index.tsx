@@ -13,7 +13,6 @@ type Blog = {
   _embedded: { "wp:featuredmedia": { source_url: string }[] };
 };
 
-// async function getBlogs(): Promise<Blog[]> {
 async function getBlogs() {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?&_embed=true`);

@@ -1,16 +1,13 @@
 .container {
     height: calc(80vh - 150px);
-    // height: 700px;
     border-radius: 20px;
     position: relative;
-    // background-color: antiquewhite;
     margin-bottom: 45px;
 }
 
 .container img {
     width: 100%;
     object-fit: cover;
-    // box-shadow: 0px 0px 60px -15px rgba(0, 0, 0, 0.3), 0px 4px 35px -20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
 
 }
@@ -81,12 +78,11 @@
         height: 350px;
     }
 
-
     .tagline {
-    display: block;
-    align-content: center;
-    text-align: center;
-            padding-left: 0;
+        display: block;
+        align-content: center;
+        text-align: center;
+        padding-left: 0;
         padding-bottom: 0;
 
         span {

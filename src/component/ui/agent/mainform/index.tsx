@@ -87,14 +87,6 @@ export default function AgentForm({name}: MainFormProps) {
     }
   };
   return (
-    // <form className={style.form}>
-    //   <input type="text" name="firstname" placeholder="First Name" />
-    //   <input type="text" name="lastname" placeholder="Last Name" />
-    //   <input type="email" name="email" placeholder="Email" />
-    //   <input type="number" name="phonenumber" placeholder="Phone Number (optional)"/>
-    //   <textarea name="message" placeholder="Enter your message"></textarea>
-    //   <button className={style.button}>Send Message</button>
-    // </form>
     <form onSubmit={handleSubmit} className={style.form}>
         <input type="text" name="firstname" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
         <input type="text" name="lastname" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />

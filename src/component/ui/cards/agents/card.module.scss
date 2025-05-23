@@ -44,30 +44,22 @@
         font-size: 18px;
     }
 
-    
 }
-
-
 
 @media screen and (max-width: 1600px) {
 
-.title {
-    height: 50%;
+    .title {
+        height: 50%;
+    }
 
 }
-
-
-
-}
-
-
 
 @media screen and (max-width: 900px) {
 
-.grid {
-    grid-template-columns: repeat(2, 1fr);
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 15px;
-}
+    }
 
 }
 

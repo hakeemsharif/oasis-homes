@@ -16,7 +16,6 @@ async function getAgents() {
     return data;
   } catch (error) {
     console.error(error);
-    // return [];
     return {
       error: "Failed to fetch agent data"
     }
@@ -26,10 +25,6 @@ async function getAgents() {
 export default async function AgentSection() {
 
   const data = await getAgents()
-
-  // if (data.error) {
-  //   return <p>Failed to Agent Data</p>
-  // }
   
   return (
     <section>

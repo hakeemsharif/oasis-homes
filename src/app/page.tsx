@@ -6,7 +6,6 @@ import AgentSection from "@/component/sections/agents";
 import BlogSection from "@/component/sections/blogs";
 export default function Home() {
   return (
-    // <main>
     <main className={style.page}>
       <HeroSection />
       <AboutSection />
