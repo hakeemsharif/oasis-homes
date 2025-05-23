@@ -1,0 +1,35 @@
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #C0C0C0;
+    padding: 20px 0;
+
+    dt {
+        font-family: var(--author-bold);
+        text-transform: uppercase;
+    }
+
+    dd {
+        font-family: var(--satoshi-regular);
+    }
+}
+
+.details {
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.details:hover{
+    background-color: #EDEDED;
+    padding: 20px 10px;
+}
+
+@media screen and (max-width: 700px) {
+
+.details {
+    flex-direction: column;
+text-align: center;
+}
+
+
+}

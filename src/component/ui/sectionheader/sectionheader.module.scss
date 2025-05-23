@@ -1,0 +1,28 @@
+.section_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.section_header span{
+    height: 5px;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    width: 100%;
+}
+
+.section_header h2{
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 40px; 
+    font-family: var(--author-bold); 
+    font-size: 32px;
+}
+
+@media screen and (max-width: 400px) {
+
+.section_header h2{
+    font-size: 19px;
+}
+
+}

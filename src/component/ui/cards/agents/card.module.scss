@@ -1,0 +1,89 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+    margin: 25px 0;
+}
+
+.card {
+    border-radius: 20px;
+    // box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.301961), 0px 4px 25px -15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;  
+    position: relative;
+    cursor: pointer;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 10 / 14; 
+}
+
+.title {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    position: absolute;
+    bottom: 0;
+    display: block;
+    align-content: end;
+    height: 30%;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+    color: var(--background);
+
+    h2 {
+        font-family: var(--author-regular);
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    span {
+        font-family: var(--satoshi-regular);
+        font-size: 18px;
+    }
+
+    
+}
+
+
+
+@media screen and (max-width: 1600px) {
+
+.title {
+    height: 50%;
+
+}
+
+
+
+}
+
+
+
+@media screen and (max-width: 900px) {
+
+.grid {
+    grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+}
+
+}
+
+
+
+
+@media screen and (max-width: 650px) {
+
+.title {
+    height: 100%;
+    font-size: 12px;
+
+        span {
+       display: none;
+    }
+}
+
+}
+

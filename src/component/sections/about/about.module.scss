@@ -1,0 +1,75 @@
+.container {
+    margin: 45px 0;
+    // margin-bottom: 45px;
+    text-align: center;
+}
+
+.content {
+    margin: 20px 0;
+}
+
+.content h2 {
+    font-family: var(--satoshi-regular);
+    font-weight: bold;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.content p {
+    font-family: var(--satoshi-regular);
+    padding: 0 200px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    font-family: var(--satoshi-regular);
+   
+}
+
+.card {
+    background-color: var(--primary-color);
+    padding: 25px;
+    border-radius: 20px;
+    display: block;
+    align-content: center;
+}
+
+.card span {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .content p {
+        padding: 0 10px;
+    }
+
+}
+
+
+@media screen and (max-width: 900px) {
+
+   .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .card span {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+}
+
+@media screen and (max-width: 310px) {
+
+   .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

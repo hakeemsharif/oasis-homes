@@ -1,0 +1,60 @@
+.form {
+    padding: 30px;
+}
+
+.agent {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.image_container img {
+    display: block;
+    width: 140px;
+    height: auto;
+    border-radius: 20px;
+    aspect-ratio: 3 / 4; 
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.agent_info {
+    font-family: var(--satoshi-regular);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name h2 {
+    font-family: var(--author-bold);
+    color: var(--primary-color);
+    font-size: 29px;
+    display: block;
+}
+
+.title {
+    font-size: 13px;
+    text-transform: uppercase;
+    
+}
+
+.link {
+    font-family: var(--author-bold);
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 440px) {
+
+    .image_container img {
+        display: none;
+    }
+
+    .agent {
+        gap: 0;
+        text-align: center;
+    }
+
+    .agent_info {
+        width: 100%;
+}
+}

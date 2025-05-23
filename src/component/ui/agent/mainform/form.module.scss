@@ -1,0 +1,45 @@
+/* Form Inputs */
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: var(--primary-color);
+    color: black;
+    font-family: var(--satoshi-regular);
+    outline: none;
+}
+
+/* Button Styles */
+.button {
+    width: 100%;
+    padding: 10px 30px;
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    font-family: var(--author-bold);
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.3), 0 4px 25px -15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    box-shadow: 0 0 50px -10px rgba(0, 0, 0, 0.4), 0 6px 30px -15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.form input::-webkit-outer-spin-button,
+.form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form input[type=number] {
+    appearance: none;           // Standard
+    -webkit-appearance: none;   // Safari, Chrome
+    -moz-appearance: textfield; // firefox
+}
