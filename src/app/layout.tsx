@@ -7,6 +7,7 @@ import { ReactLenis } from "lenis/react";
 import "./globals.css";
 import 'lenis/dist/lenis.css'
 import "./globals.css";
+import Message from "@/component/ui/message";
 
 const authorBold = localFont({
   src: "font/Author-Bold.otf",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
           <Navbar />
           {children}
           <Footer />
+          <Message />
         </body>
       </ReactLenis>
     </html>
