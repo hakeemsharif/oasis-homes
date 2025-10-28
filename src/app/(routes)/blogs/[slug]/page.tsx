@@ -12,6 +12,9 @@ type Blog = {
   content: {rendered: string; }
   date: string;
   author: string;
+  acf: {
+    featured_image: string;
+  }
   _embedded: { 
     "author": { name: string; }[];
     "wp:featuredmedia": { source_url: string; }[];
@@ -26,7 +29,11 @@ type BlogStaticParams = {
 async function getBlogs(slug: string): Promise<Blog | null> {
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?slug=${slug}&_embed=true`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?slug=${slug}&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");
@@ -42,7 +49,11 @@ async function getBlogs(slug: string): Promise<Blog | null> {
 
 async function getMoreBlogs() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?&_embed=true`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");
@@ -57,7 +68,11 @@ async function getMoreBlogs() {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?_embed=true`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
   const data: BlogStaticParams[] = await res.json();
 
   return data.map((data) => ({
@@ -81,7 +96,7 @@ export default async function BlogPage({params}: {params: Promise<{ slug: string
             <h1>{blog.title.rendered}</h1>
           <div className={style.image_container}>
             <Image
-              src={blog._embedded["wp:featuredmedia"][0]?.source_url}
+              src={blog.acf.featured_image}
               alt="Property Image"
               width={5000}
               height={650}

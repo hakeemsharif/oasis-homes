@@ -16,8 +16,11 @@ type PropertyStaticParams = {
 async function fetchPropertyDetails(slug: string) {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WP_URL}/property?slug=${slug}&_embed=true`
-    );
+      `${process.env.NEXT_PUBLIC_WP_URL}/property?slug=${slug}&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error(`Failed to fetch property: ${response.status} ${response.statusText}`);
@@ -32,7 +35,11 @@ async function fetchPropertyDetails(slug: string) {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/property?_embed=true`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/property?_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
   const data: PropertyStaticParams[] = await res.json();
 
   return data.map((data) => ({
@@ -55,7 +62,7 @@ export default async function PropertyPage({params,}: {params: Promise<{ slug: s
         <div className={style.image_contact}>
           <div className={style.image_container}>
             <Image
-              src={property._embedded["wp:featuredmedia"][0]?.source_url}
+              src={property.acf?.featured_image}
               alt="Property Image"
               width={1000}
               height={200}

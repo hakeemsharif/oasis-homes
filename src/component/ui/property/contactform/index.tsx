@@ -6,7 +6,11 @@ import MainForm from "../mainform";
 
 async function fetchAgentAssociate(id: number) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/agent/${id}?_embed=true`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/agent/${id}?_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error(`Failed to fetch agent`);
@@ -32,7 +36,7 @@ export default async function ContactForm({ id, title }: { id: number; title: st
       <div className={style.agent}>
         <div className={style.image_container}>
             <Image 
-            src={agent._embedded["wp:featuredmedia"][0]?.source_url}
+            src={agent.acf.featured_image}
             alt="Agent Image"
             width={300}
             height={90}

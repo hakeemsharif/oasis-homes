@@ -9,6 +9,9 @@ type Blog = {
   title: { rendered: string };
   slug: string;
   date: string;
+  acf: {
+    featured_image: string;
+  }
   _embedded: { "wp:featuredmedia": { source_url: string }[] };
 };
 
@@ -36,7 +39,7 @@ export default function BlogCards({ data, currentBlogSlug, limit,  }: BlogCardPr
             </Link>
           </div>
           <Image 
-            src={blog._embedded["wp:featuredmedia"][0].source_url}
+            src={blog.acf.featured_image}
             alt="Blog Image" 
             width={1000}
             height={100}

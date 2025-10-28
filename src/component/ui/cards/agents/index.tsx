@@ -11,6 +11,7 @@ type Agent = {
     title: string;
     number: number;
     email: string;
+    featured_image: string;
   };
   _embedded: { "wp:featuredmedia": { source_url: string }[] };
 };
@@ -34,7 +35,8 @@ export default function AgentsCards({ data, limit }: AgentCardProps) {
               <span>+{agent.acf.number}</span>
             </div>
             <Image 
-              src={agent._embedded["wp:featuredmedia"][0]?.source_url}
+              // src={agent._embedded["wp:featuredmedia"][0]?.source_url}
+              src={agent.acf.featured_image}
               alt="Agent Image"
               width={600}
               height={200}/>

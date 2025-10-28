@@ -7,7 +7,11 @@ import Pagination from '@/component/ui/pagination';
 
 async function getBlogs(page = 1, perPage = 6) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?_embed=true&page=${page}&per_page=${perPage}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?_embed=true&page=${page}&per_page=${perPage}`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");

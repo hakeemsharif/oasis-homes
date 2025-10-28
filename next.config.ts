@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
             hostname: "forestgreen-quetzal-460038.hostingersite.com",
             port: "",
           },
+          {
+            protocol: "https",
+            hostname: "detailed-point.localsite.io",
+            port: "",
+          },
+          {
+            protocol: "https",
+            hostname: "res.cloudinary.com",
+            port: "",
+          },
+
         ],
       },
 

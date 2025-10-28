@@ -7,7 +7,10 @@ type Property = {
   id: string;
   title: { rendered: string };
   slug: string;
-  acf: { address: string };
+  acf: { 
+    address: string;
+    featured_image: string;
+  };
   _embedded: { "wp:featuredmedia": { source_url: string }[] };
 };
 
@@ -39,7 +42,8 @@ export default function PropertyCard({ data, limit }: PropertyCardProps) {
             </div>
           </div>
           <Image
-            src={property._embedded["wp:featuredmedia"][0]?.source_url}
+            // src={property._embedded["wp:featuredmedia"][0]?.source_url}
+            src={property.acf.featured_image}
             alt="Property Image"
             width={600}
             height={200}

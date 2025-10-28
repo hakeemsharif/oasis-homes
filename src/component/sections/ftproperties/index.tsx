@@ -6,7 +6,11 @@ import Link from "next/link";
 
 async function getProperties() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/property?&_embed=true`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/property?&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");

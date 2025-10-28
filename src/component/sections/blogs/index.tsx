@@ -10,12 +10,19 @@ type Blog = {
   title: { rendered: string };
   slug: string;
   date: string;
+  acf: { 
+    featured_image: string;
+  };
   _embedded: { "wp:featuredmedia": { source_url: string }[] };
 };
 
 async function getBlogs() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?&_embed=true`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");
@@ -54,7 +61,7 @@ export default async function BlogSection() {
                 </Link>
               </div>
               <Image
-                src={blog._embedded["wp:featuredmedia"][0].source_url}
+                src={blog.acf.featured_image}
                 alt="Blog Image"
                 width={1000}
                 height={100}
@@ -74,7 +81,7 @@ export default async function BlogSection() {
                 </Link>
               </div>
               <Image
-                src={blog._embedded["wp:featuredmedia"][0].source_url}
+                src={blog.acf.featured_image}
                 alt="Agent Image"
                 width={1000}
                 height={100}
@@ -94,7 +101,7 @@ export default async function BlogSection() {
                 </Link>
               </div>
               <Image
-                src={blog._embedded["wp:featuredmedia"][0].source_url}
+                src={blog.acf.featured_image}
                 alt="Agent Image"
                 width={1000}
                 height={100}
@@ -114,7 +121,7 @@ export default async function BlogSection() {
                 </Link>
               </div>
               <Image
-                src={blog._embedded["wp:featuredmedia"][0].source_url}
+                src={blog.acf.featured_image}
                 alt="Agent Image"
                 width={1000}
                 height={100}
@@ -134,7 +141,7 @@ export default async function BlogSection() {
                 </Link>
               </div>
               <Image
-                src={blog._embedded["wp:featuredmedia"][0].source_url}
+                src={blog.acf.featured_image}
                 alt="Agent Image"
                 width={1000}
                 height={100}
@@ -154,7 +161,7 @@ export default async function BlogSection() {
                 </Link>
               </div>
               <Image
-                src={blog._embedded["wp:featuredmedia"][0].source_url}
+                src={blog.acf.featured_image}
                 alt="Agent Image"
                 width={1000}
                 height={100}

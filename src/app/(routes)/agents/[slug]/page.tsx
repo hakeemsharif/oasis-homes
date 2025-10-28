@@ -18,8 +18,11 @@ type AgentStaticParams = {
 async function fetchAgentDetails(slug: string) {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WP_URL}/agent?slug=${slug}&_embed=true`
-    );
+      `${process.env.NEXT_PUBLIC_WP_URL}/agent?slug=${slug}&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
 
     if (!response.ok) {
       throw new Error(`Failed to fetch agent`);
@@ -37,8 +40,12 @@ async function fetchAgentDetails(slug: string) {
 async function fetchPropertyHandled(slug: string) {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WP_URL}/agent?slug=${slug}&_embed=true`
-    );
+      `${process.env.NEXT_PUBLIC_WP_URL}/agent?slug=${slug}&_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
+
     if (!response.ok) {
       throw new Error(`Failed to fetch agent`);
     }
@@ -85,7 +92,11 @@ async function fetchPropertyHandled(slug: string) {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/agent?_embed=true`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/agent?_embed=true`, {
+        headers: {
+          "Authorization": "Basic " + Buffer.from(`${process.env.WP_USER}:${process.env.WP_PW}`).toString("base64"),
+        },
+    });
   const data: AgentStaticParams[] = await res.json();
 
   return data.map((data) => ({
@@ -110,7 +121,7 @@ export default async function AgentPage({ params,}: {params: Promise<{ slug: str
         <div className={style.contact}>
           <div className={style.image_container}>
             <Image
-              src={agent._embedded["wp:featuredmedia"][0]?.source_url}
+              src={agent.acf.featured_image}
               alt="Property Image"
               width={1000}
               height={200}
@@ -144,7 +155,7 @@ export default async function AgentPage({ params,}: {params: Promise<{ slug: str
                     </div>
                   </div>
                   <Image
-                    src={property.featured_image_url}
+                    src={property.acf.featured_image}
                     alt="Property Image"
                     width={600}
                     height={200}
