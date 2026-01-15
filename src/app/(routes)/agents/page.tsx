@@ -4,6 +4,8 @@ import Search from '@/component/ui/search';
 import AgentsCards from '@/component/ui/cards/agents';
 import Pagination from '@/component/ui/pagination';
 
+export const revalidate = 10;
+
 async function getAgents(page = 1, perPage = 8) {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/agent?_embed=true&page=${page}&per_page=${perPage}`, {
