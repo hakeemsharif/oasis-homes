@@ -4,6 +4,9 @@ import PropertyCard from "@/component/ui/cards/property";
 import Headlines from "@/component/ui/headlines";
 import Pagination from "@/component/ui/pagination";
 
+export const dynamic = 'force-static'; // This is the key line!
+export const revalidate = false; // Never revalidate
+
 async function getProperties(page = 1, perPage = 8) {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/property?_embed=true&page=${page}&per_page=${perPage}`, {

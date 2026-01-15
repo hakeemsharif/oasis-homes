@@ -5,6 +5,9 @@ import Search from '@/component/ui/search';
 import BlogCards from '@/component/ui/cards/blogs';
 import Pagination from '@/component/ui/pagination';
 
+export const dynamic = 'force-static'; // This is the key line!
+export const revalidate = false; // Never revalidate
+
 async function getBlogs(page = 1, perPage = 6) {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/posts?_embed=true&page=${page}&per_page=${perPage}`, {
