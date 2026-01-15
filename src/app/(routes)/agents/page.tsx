@@ -4,9 +4,8 @@ import Search from '@/component/ui/search';
 import AgentsCards from '@/component/ui/cards/agents';
 import Pagination from '@/component/ui/pagination';
 
-export async function generateStaticParams() {
-  return [{ page: '1' }, { page: '2' }]; // Pre-generate first 2 pages
-}
+export const dynamic = 'force-static'; // This is the key line!
+export const revalidate = false; // Never revalidate
 
 async function getAgents(page = 1, perPage = 8) {
   try {
